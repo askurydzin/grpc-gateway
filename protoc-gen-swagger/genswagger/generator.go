@@ -71,7 +71,7 @@ func encodeSwagger(file *wrapper) *plugin.CodeGeneratorResponse_File {
 	output := fmt.Sprintf("%s.swagger.json", base)
 	return &plugin.CodeGeneratorResponse_File{
 		Name:    proto.String(output),
-		Content: proto.String(formatted.String()),
+		Content: proto.String(atlasSwagger(formatted.Bytes())),
 	}
 }
 

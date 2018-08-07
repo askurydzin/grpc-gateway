@@ -745,11 +745,9 @@
     },
     "/v2/example/empty": {
       "get": {
-        "description": "This API creates a new ABitOfEverything",
         "tags": [
           "camelCaseServiceName"
         ],
-        "summary": "Create a new ABitOfEverything",
         "operationId": "Empty",
         "responses": {
           "200": {
@@ -1058,6 +1056,9 @@
       "description": "Intentionaly complicated message type to cover many features of Protobuf.",
       "type": "object",
       "title": "A bit of everything",
+      "required": [
+        "uuid"
+      ],
       "properties": {
         "bool_value": {
           "type": "boolean",
@@ -1196,7 +1197,8 @@
           "format": "uint64"
         },
         "uuid": {
-          "type": "string"
+          "type": "string",
+          "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
         }
       },
       "externalDocs": {

@@ -76,5 +76,5 @@ type ExamplepbABitOfEverything struct {
 
 	Uint64Value string `json:"uint64_value,omitempty"`
 
-	Uuid string `json:"uuid,omitempty"`
+	Uuid string `json:"uuid"`
 }

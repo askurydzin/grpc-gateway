@@ -33,8 +33,7 @@
 [[projects]]
   name = "github.com/go-openapi/spec"
   packages = ["."]
-  revision = "bce47c9386f9ecd6b86f450478a80103c3fe1402"
-  version = "0.15.0"
+  revision = "384415f06ee238aae1df5caad877de6ceac3a5c4"
 
 [[projects]]
   name = "github.com/go-openapi/swag"
@@ -171,6 +170,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ad1de187f3051c16384a104dbd670804f57fa01d8c44eab45455ec6f6847543e"
+  inputs-digest = "7ff21b7a3eaa7ac1bb5cd7a0364b0891d3bca23c01b8205e3780a81145327e4a"
   solver-name = "gps-cdcl"
   solver-version = 1

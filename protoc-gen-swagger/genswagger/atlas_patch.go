@@ -188,9 +188,12 @@ func atlasSwagger(b []byte) string {
 		seenRefs[trim(r)] = true
 		s, _, err := r.GetPointer().Get(sw)
 		if err != nil {
-			panic(err)
+			continue
 		}
-		checkRecursion(s.(spec.Schema), r, []string{})
+
+		if _, ok := s.(spec.Schema); ok {
+			checkRecursion(s.(spec.Schema), r, []string{})
+		}
 	}
 
 	// Cleanup unused definitions.

@@ -13,9 +13,9 @@ package abe
 // this message mimics string type, however when put in request rendered as a definition
 type ExamplepbMimicObjectRequest struct {
 
+	RequestEnum MimicObjectRequestMimicRequestEnum `json:"request_enum,omitempty"`
+
 	RequestValueOne string `json:"request_value_one,omitempty"`
 
 	RequestValueTwo string `json:"request_value_two,omitempty"`
-
-	RequestEnum MimicObjectRequestMimicRequestEnum `json:"request_enum,omitempty"`
 }

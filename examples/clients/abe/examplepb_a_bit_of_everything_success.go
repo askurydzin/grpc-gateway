@@ -10,13 +10,11 @@
 
 package abe
 
-// Nested is nested type.
-type ABitOfEverythingNested struct {
+type ExamplepbABitOfEverythingSuccess struct {
 
-	Amount int64 `json:"amount,omitempty"`
+	Code int32 `json:"code,omitempty"`
 
-	// name is nested field.
-	Name string `json:"name,omitempty"`
+	Message string `json:"message,omitempty"`
 
-	Ok NestedDeepEnum `json:"ok,omitempty"`
+	Status string `json:"status,omitempty"`
 }

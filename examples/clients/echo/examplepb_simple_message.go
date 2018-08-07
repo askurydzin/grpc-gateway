@@ -13,18 +13,20 @@ package echo
 // SimpleMessage represents a simple message sent to the Echo service.
 type ExamplepbSimpleMessage struct {
 
+	En string `json:"en,omitempty"`
+
 	// Id represents the message identifier.
 	Id string `json:"id,omitempty"`
 
-	Num string `json:"num,omitempty"`
+	Lang string `json:"lang,omitempty"`
 
 	LineNum string `json:"line_num,omitempty"`
 
-	Lang string `json:"lang,omitempty"`
+	No ExamplepbEmbedded `json:"no,omitempty"`
+
+	Num string `json:"num,omitempty"`
 
 	Status ExamplepbEmbedded `json:"status,omitempty"`
 
-	En string `json:"en,omitempty"`
-
-	No ExamplepbEmbedded `json:"no,omitempty"`
+	Success ExamplepbSimpleMessageSuccess `json:"success,omitempty"`
 }

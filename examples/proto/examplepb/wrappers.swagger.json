@@ -1,31 +1,26 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "examples/proto/examplepb/wrappers.proto",
-    "version": "version not set"
-  },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
   "produces": [
     "application/json"
   ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "examples/proto/examplepb/wrappers.proto",
+    "version": "version not set"
+  },
   "paths": {
     "/v1/example/wrappers": {
       "post": {
+        "tags": [
+          "WrappersService"
+        ],
         "operationId": "Create",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/examplepbWrappers"
-            }
-          }
-        },
         "parameters": [
           {
             "name": "body",
@@ -36,9 +31,13 @@
             }
           }
         ],
-        "tags": [
-          "WrappersService"
-        ]
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/examplepbWrappers"
+            }
+          }
+        }
       }
     }
   },
@@ -46,8 +45,21 @@
     "examplepbWrappers": {
       "type": "object",
       "properties": {
-        "string_value": {
-          "type": "string"
+        "bool_value": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "bytes_value": {
+          "type": "string",
+          "format": "byte"
+        },
+        "double_value": {
+          "type": "number",
+          "format": "double"
+        },
+        "float_value": {
+          "type": "number",
+          "format": "float"
         },
         "int32_value": {
           "type": "integer",
@@ -57,17 +69,25 @@
           "type": "string",
           "format": "int64"
         },
-        "float_value": {
-          "type": "number",
-          "format": "float"
+        "string_value": {
+          "type": "string"
         },
-        "double_value": {
-          "type": "number",
-          "format": "double"
-        },
-        "bool_value": {
-          "type": "boolean",
-          "format": "boolean"
+        "success": {
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32",
+              "example": 201
+            },
+            "message": {
+              "type": "string",
+              "example": "\u003cresponse message\u003e"
+            },
+            "status": {
+              "type": "string",
+              "example": "CREATED"
+            }
+          }
         },
         "uint32_value": {
           "type": "integer",
@@ -76,10 +96,6 @@
         "uint64_value": {
           "type": "string",
           "format": "uint64"
-        },
-        "bytes_value": {
-          "type": "string",
-          "format": "byte"
         }
       }
     }

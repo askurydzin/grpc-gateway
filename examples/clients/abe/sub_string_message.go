@@ -12,5 +12,7 @@ package abe
 
 type SubStringMessage struct {
 
+	Success ExamplepbMimicObjectResponseSuccess `json:"success,omitempty"`
+
 	Value string `json:"value,omitempty"`
 }

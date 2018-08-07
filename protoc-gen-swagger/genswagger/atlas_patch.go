@@ -151,11 +151,7 @@ func atlasSwagger(b []byte) string {
 						panic(err)
 					}
 
-					schema, ok := s.(spec.Schema)
-					if !ok {
-						panic("cannot cast interface to spec.Schema")
-					}
-
+					schema := s.(spec.Schema)
 					if schema.Properties == nil {
 						schema.Properties = map[string]spec.Schema{}
 					}
@@ -178,7 +174,24 @@ func atlasSwagger(b []byte) string {
 			}
 		}
 
-		fixedPaths[pn] = pi
+		pitem := fixedPaths[pn]
+		for opName, opPtr := range pathItemAsMap(pi) {
+			if opPtr == nil {
+				continue
+			}
+			opPtr := opPtr
+			switch opName {
+			case "GET":
+				pitem.Get = opPtr
+			case "PUT":
+				pitem.Put = opPtr
+			case "POST":
+				pitem.Post = opPtr
+			case "DELETE":
+				pitem.Delete = opPtr
+			}
+		}
+		fixedPaths[pn] = pitem
 	}
 
 	sw.Paths.Paths = fixedPaths

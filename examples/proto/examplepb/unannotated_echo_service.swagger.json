@@ -1,100 +1,92 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "title": "examples/proto/examplepb/unannotated_echo_service.proto",
-    "description": "Unannotated Echo Service\nSimilar to echo_service.proto but without annotations. See\nunannotated_echo_service.yaml for the equivalent of the annotations in\ngRPC API configuration format.\n\nEcho Service API consists of a single service which returns\na message.",
-    "version": "version not set"
-  },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
   "produces": [
     "application/json"
   ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Unannotated Echo Service\nSimilar to echo_service.proto but without annotations. See\nunannotated_echo_service.yaml for the equivalent of the annotations in\ngRPC API configuration format.\n\nEcho Service API consists of a single service which returns\na message.",
+    "title": "examples/proto/examplepb/unannotated_echo_service.proto",
+    "version": "version not set"
+  },
   "paths": {
     "/v1/example/echo/{id}": {
       "post": {
-        "summary": "Echo method receives a simple message and returns it.",
         "description": "The message posted as the id parameter will also be\nreturned.",
+        "tags": [
+          "UnannotatedEchoService"
+        ],
+        "summary": "Echo method receives a simple message and returns it.",
         "operationId": "Echo",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id represents the message identifier.",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
         "responses": {
-          "200": {
-            "description": "",
+          "201": {
             "schema": {
               "$ref": "#/definitions/examplepbUnannotatedSimpleMessage"
             }
           }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Id represents the message identifier.",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "UnannotatedEchoService"
-        ]
+        }
       }
     },
     "/v1/example/echo/{id}/{num}": {
       "get": {
-        "summary": "Echo method receives a simple message and returns it.",
         "description": "The message posted as the id parameter will also be\nreturned.",
+        "tags": [
+          "UnannotatedEchoService"
+        ],
+        "summary": "Echo method receives a simple message and returns it.",
         "operationId": "Echo2",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id represents the message identifier.",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "name": "num",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "duration",
+            "in": "query"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "",
             "schema": {
               "$ref": "#/definitions/examplepbUnannotatedSimpleMessage"
             }
           }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Id represents the message identifier.",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "num",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "int64"
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "UnannotatedEchoService"
-        ]
+        }
       }
     },
     "/v1/example/echo_body": {
       "post": {
+        "tags": [
+          "UnannotatedEchoService"
+        ],
         "summary": "EchoBody method receives a simple message and returns it.",
         "operationId": "EchoBody",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/examplepbUnannotatedSimpleMessage"
-            }
-          }
-        },
         "parameters": [
           {
             "name": "body",
@@ -105,68 +97,85 @@
             }
           }
         ],
-        "tags": [
-          "UnannotatedEchoService"
-        ]
-      }
-    },
-    "/v1/example/echo_delete": {
-      "delete": {
-        "summary": "EchoDelete method receives a simple message and returns it.",
-        "operationId": "EchoDelete",
         "responses": {
-          "200": {
-            "description": "",
+          "201": {
             "schema": {
               "$ref": "#/definitions/examplepbUnannotatedSimpleMessage"
             }
           }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Id represents the message identifier.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "num",
-            "in": "query",
-            "required": false,
-            "type": "string",
-            "format": "int64"
-          },
-          {
-            "name": "duration",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
+        }
+      }
+    },
+    "/v1/example/echo_delete": {
+      "delete": {
         "tags": [
           "UnannotatedEchoService"
-        ]
+        ],
+        "summary": "EchoDelete method receives a simple message and returns it.",
+        "operationId": "EchoDelete",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id represents the message identifier.",
+            "name": "id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "format": "int64",
+            "name": "num",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "duration",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "203": {
+            "schema": {
+              "$ref": "#/definitions/examplepbUnannotatedSimpleMessage"
+            }
+          }
+        }
       }
     }
   },
   "definitions": {
     "examplepbUnannotatedSimpleMessage": {
+      "description": "UnannotatedSimpleMessage represents a simple message sent to the unannotated Echo service.",
       "type": "object",
       "properties": {
+        "duration": {
+          "type": "string"
+        },
         "id": {
-          "type": "string",
-          "description": "Id represents the message identifier."
+          "description": "Id represents the message identifier.",
+          "type": "string"
         },
         "num": {
           "type": "string",
           "format": "int64"
         },
-        "duration": {
-          "type": "string"
+        "success": {
+          "properties": {
+            "code": {
+              "type": "integer",
+              "format": "int32",
+              "example": 200
+            },
+            "message": {
+              "type": "string",
+              "example": "\u003cresponse message\u003e"
+            },
+            "status": {
+              "type": "string",
+              "example": "OK"
+            }
+          }
         }
-      },
-      "description": "UnannotatedSimpleMessage represents a simple message sent to the unannotated Echo service."
+      }
     }
   }
 }

@@ -13,9 +13,11 @@ package abe
 // this message mimics string type, however when put in response rendered as a definition
 type ExamplepbMimicObjectResponse struct {
 
+	ResponseEnum MimicObjectResponseMimicResponseEnum `json:"response_enum,omitempty"`
+
 	ResponseValueOne string `json:"response_value_one,omitempty"`
 
 	ResponseValueTwo string `json:"response_value_two,omitempty"`
 
-	ResponseEnum MimicObjectResponseMimicResponseEnum `json:"response_enum,omitempty"`
+	Success ExamplepbMimicObjectResponseSuccess `json:"success,omitempty"`
 }

@@ -10,10 +10,11 @@
 
 package echo
 
-// Embedded represents a message embedded in SimpleMessage.
-type ExamplepbEmbedded struct {
+type ExamplepbSimpleMessageSuccess struct {
 
-	Note string `json:"note,omitempty"`
+	Code int32 `json:"code,omitempty"`
 
-	Progress string `json:"progress,omitempty"`
+	Message string `json:"message,omitempty"`
+
+	Status string `json:"status,omitempty"`
 }
